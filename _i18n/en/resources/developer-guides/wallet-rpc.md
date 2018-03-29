@@ -188,7 +188,7 @@ Inputs:
   * *label* - string;
 
 
-Outputs: *None*
+Outputs: *None*.
 
 Example:
 
@@ -255,7 +255,7 @@ Inputs:
   * *label* - string
 
 
-Outputs: *None*
+Outputs: *None*.
 
 Example:
 
@@ -293,7 +293,7 @@ Inputs:
   * *accounts* - set of, unsigned int;
 
 
-Outputs: *None*
+Outputs: *None*.
 
 Example:
 
@@ -310,7 +310,7 @@ Inputs:
   * *accounts* - set of unsigned int;
 
 
-Outputs: *None*
+Outputs: *None*.
 
 Example:
 
@@ -328,7 +328,7 @@ Inputs:
   * *description* - string;
 
 
-Outputs: *None*
+Outputs: *None*.
 
 Example:
 

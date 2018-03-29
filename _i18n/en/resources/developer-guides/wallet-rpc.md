@@ -35,24 +35,23 @@ Note: "atomic units" refer to the smallest fraction of 1 XMR according to the mo
 
 * [getbalance](#getbalance)
 * [getaddress](#getaddress)
-<!-- * [create_address]()
-* [label_address]()
-* [get_accounts]()
-* [create_account]()
-* [label_account]()
-* [get_account_tags]()
-* [tag_accounts]()
-* [untag_accounts]()
-* [set_account_tag_description]()
- -->* [getheight](#getheight)
-* [relaxy_tx]()
+* [create_address](#create_address)
+* [label_address](#label_address)
+* [get_accounts](#get_accounts)
+* [create_account](#create_account)
+* [label_account](#label_account)
+* [get_account_tags](#get_account_tags)
+* [tag_accounts](#tag_accounts)
+* [untag_accounts](#untag_accounts)
+* [set_account_tag_description](#set_account_tag_description)
+* [getheight](#getheight)
 * [transfer](#transfer)
 * [transfer_split](#transfer_split)
 * [sweep_dust](#sweep_dust)
-* [sweep_unmixable]()
+* [sweep_unmixable](# )
 * [sweep_all](#sweep_all)
-* [sweep_single]()
-* [relay_tx]()
+* [sweep_single](#sweep_single)
+* [relay_tx](#relay_tx)
 * [store](#store)
 * [get_payments](#get_payments)
 * [get_bulk_payments](#get_bulk_payments)
@@ -64,17 +63,17 @@ Note: "atomic units" refer to the smallest fraction of 1 XMR according to the mo
 * [rescan_blockchain](#rescan_blockchain)
 * [set_tx_notes](#set_tx_notes)
 * [get_tx_notes](#get_tx_notes)
-<!-- * [set_attribute]()
-* [get_attribute]()
-* [get_tx_key]()
-* [check_tx_key]()
-* [get_tx_proof]()
-* [check_tx_proof]()
-* [get_spend_proof]()
-* [check_spend_proof]()
-* [get_reserve_proof]()
-* [check_reserve_proof]()
- -->* [get_transfers](#get_transfers)
+* [set_attribute](#set_attribute)
+* [get_attribute](#get_attribute)
+* [get_tx_key](#get_tx_key)
+* [check_tx_key](#check_tx_key)
+* [get_tx_proof](#get_tx_proof)
+* [check_tx_proof](#check_tx_proof)
+* [get_spend_proof](#get_spend_proof)
+* [check_spend_proof](#check_spend_proof)
+* [get_reserve_proof](#get_reserve_proof)
+* [check_reserve_proof](#check_reserve_proof)
+* [get_transfers](#get_transfers)
 * [get_transfer_by_txid](#get_transfer_by_txid)
 * [sign](#sign)
 * [verify](#verify)
@@ -91,15 +90,15 @@ Note: "atomic units" refer to the smallest fraction of 1 XMR according to the mo
 * [get_languages](#get_languages)
 * [create_wallet](#create_wallet)
 * [open_wallet](#open_wallet)
-<!-- * [is_multisig]()
-* [prepare_multisig]()
-* [make_multisig]()
-* [export_multisig_info]()
-* [import_multisig_info]()
-* [finalize_multisig]()
-* [sign_multisig]()
-* [submit_multisig]()
- -->
+* [is_multisig](#is_multisig)
+* [prepare_multisig](#prepare_multisig)
+* [make_multisig](#make_multisig)
+* [export_multisig_info](#export_multisig_info)
+* [import_multisig_info](#import_multisig_info)
+* [finalize_multisig](#finalize_multisig)
+* [sign_multisig](#sign_multisig)
+* [submit_multisig](#submit_multisig)
+
 ---
 
 ## JSON RPC Methods:
@@ -153,6 +152,188 @@ $ curl -X POST http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "address": "427ZuEhNJQRXoyJAeEoBaNW56ScQaLXyyQWgxeRL9KgAUhVzkvfiELZV7fCPBuuB2CGuJiWFQjhnhhwiH1FsHYGQGaDsaBA"
   }
 }
+```
+
+
+### **create_address**
+
+Descriptor
+
+Inputs:
+
+  * *account_index* - unsigned int;
+  * *label* - string;
+
+
+Outputs:
+
+  * *address* - string;
+  * *address_index* - unsigned int;
+
+
+Example:
+
+```
+```
+
+
+### **label_address**
+
+Descriptor
+
+Inputs:
+
+  * *index* - subaddress_index;:
+    * *major* - unsigned int;
+    * *minor* - unsigned int;
+  * *label* - string;
+
+
+Outputs: *None*
+
+Example:
+
+```
+```
+
+
+### **get_accounts**
+
+Descriptor
+
+Inputs:
+
+  * *tag* - string;
+
+
+Outputs:
+
+  * *total_balance* - unsigned int;
+  * *total_unlocked_balance* - unsigned int;
+  * *subaddress_accounts* - array of type, subaddress_account_info:
+    * *account_index* - unsigned int;
+    * *base_address* - string;
+    * *balance* - unsigned int;
+    * *unlocked_balance* - unsigned int;
+    * *label* - string;
+    * *tag* - string;
+
+
+Example:
+
+```
+```
+
+
+### **create_account**
+
+Descriptor
+
+Inputs:
+
+  * *label* - string;
+
+
+Outputs:
+
+  * *account_index* - unsigned int;
+  * *address* - string;
+
+
+Example:
+
+```
+```
+
+
+### **label_account**
+
+Descriptor
+
+Inputs:
+
+  * *account_index* - unsigned int;
+  * *label* - string
+
+
+Outputs: *None*
+
+Example:
+
+```
+```
+
+
+### **get_account_tags**
+
+Descriptor
+
+Inputs: *None*
+
+Outputs:
+
+  * *account_tags* - array of, account_tag_info;:
+    * *tag* - string;
+    * *label* - string;
+    * *accounts* - array of, unsigned int;
+
+
+Example:
+
+```
+```
+
+
+### **tag_accounts**
+
+Descriptor
+
+Inputs:
+
+  * *tag* - string;
+  * *accounts* - set of, unsigned int;
+
+
+Outputs: *None*
+
+Example:
+
+```
+```
+
+
+### **untag_accounts**
+
+Descriptor
+
+Inputs:
+
+  * *accounts* - set of unsigned int;
+
+
+Outputs: *None*
+
+Example:
+
+```
+```
+
+
+### **set_account_tag_description**
+
+Descriptor
+
+Inputs:
+
+  * *tag* - string;
+  * *description* - string;
+
+
+Outputs: *None*
+
+Example:
+
+```
 ```
 
 
@@ -294,6 +475,7 @@ $ curl -X POST http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 }
 ```
 
+
 ### **sweep_all**
 
 Send all unlocked balance to an address.
@@ -330,6 +512,20 @@ $ curl -X POST http://localhost:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   }
 }
 ```
+
+
+### **sweep_single**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
 
 ### **store**
 

@@ -48,7 +48,6 @@ Note: "atomic units" refer to the smallest fraction of 1 XMR according to the mo
 * [transfer](#transfer)
 * [transfer_split](#transfer_split)
 * [sweep_dust](#sweep_dust)
-* [sweep_unmixable](# )
 * [sweep_all](#sweep_all)
 * [sweep_single](#sweep_single)
 * [relay_tx](#relay_tx)

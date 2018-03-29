@@ -268,7 +268,7 @@ Example:
 
 Descriptor
 
-Inputs: *None*
+Inputs: *None*.
 
 Outputs:
 
@@ -519,8 +519,29 @@ $ curl -X POST http://localhost:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 Descriptor
 
 Inputs:
+  
+  * *address* - string;
+  * *priority* - unsigned int;
+  * *mixin* - unsigned int;
+  * *ring_size* - unsigned int;
+  * *unlock_time* - unsigned int;
+  * *payment_id* - string;
+  * *get_tx_key* - bool;
+  * *key_image* - string;
+  * *do_not_relay* - bool;
+  * *get_tx_hex* - bool;
+  * *get_tx_metadata* - bool;
+
 
 Outputs:
+
+  * *tx_hash* - string;
+  * *tx_key* - string;
+  * *amount* - unsigned int;
+  * *fee* - unsigned int;
+  * *tx_blob* - string;
+  * *tx_metadata* - string;
+  * *multisig_txset* - string;
 
 Example:
 ```
@@ -533,7 +554,16 @@ Descriptor
 
 Inputs:
 
-Outputs
+  * *hex* - string;
+
+
+Outputs:
+
+  * *tx_hash* - string;
+  * *tx_key* - string;
+  * *fee* - unsigned int;
+  * *tx_blob* - string;
+
 
 Example:
 ```
@@ -1102,7 +1132,11 @@ Descriptor
 
 Inputs:
 
-Outputs:
+  * *key* - string;
+  * *value* - string;
+
+
+Outputs: *None.*
 
 Example:
 ```
@@ -1115,7 +1149,13 @@ Descriptor
 
 Inputs:
 
+  * *key* - string;
+
+
 Outputs:
+
+  * *value* - string;
+
 
 Example:
 ```
@@ -1128,7 +1168,13 @@ Descriptor
 
 Inputs:
 
+  * *txid* - string;
+
+
 Outputs:
+
+  * *tx_key* - string;
+
 
 Example:
 ```
@@ -1141,7 +1187,17 @@ Descriptor
 
 Inputs:
 
+  * *txid* - string;
+  * *tx_key* - string;
+  * *address* - string;
+
+
 Outputs:
+
+  * *received* - unsigned int;
+  * *in_pool* - bool;
+  * *confirmations* - unsigned int;
+
 
 Example:
 ```
@@ -1154,7 +1210,15 @@ Descriptor
 
 Inputs:
 
+  * *txid* - string;
+  * *address* - string;
+  * *message* - string;
+
+
 Outputs:
+
+  * *signature* - string;
+
 
 Example:
 ```
@@ -1167,7 +1231,19 @@ Descriptor
 
 Inputs:
 
+  * *txid* - string;
+  * *address* - string;
+  * *message* - string;
+  * *signature* - string;
+
+
 Outputs:
+
+  * *good* - bool;
+  * *received* - unsigned int;
+  * *in_pool* - bool;
+  * *confirmations* - unsigned int;
+
 
 Example:
 ```
@@ -1180,7 +1256,14 @@ Descriptor
 
 Inputs:
 
+  * *txid* - string;
+  * *message* - string;
+
+
 Outputs:
+
+  * *signature* - string;
+
 
 Example:
 ```
@@ -1193,7 +1276,15 @@ Descriptor
 
 Inputs:
 
+  * *txid* - string;
+  * *message* - string;
+  * *signature* - string;
+
+
 Outputs:
+
+  * *good* - bool;
+
 
 Example:
 ```
@@ -1206,7 +1297,16 @@ Descriptor
 
 Inputs:
 
+  * *all* - bool;
+  * *account_index* - unsigned int;
+  * *amount* - unsigned int;
+  * *message* - string;
+
+
 Outputs:
+
+  * *signature* - string;
+
 
 Example:
 ```
@@ -1219,7 +1319,17 @@ Descriptor
 
 Inputs:
 
+  * *address* - string;
+  * *message* - string;
+  * *signature* - string;
+
+
 Outputs:
+
+  * *good* - bool;
+  * *total* - unsigned int;
+  * *spend* - unsigned int;
+
 
 Example:
 ```
@@ -1589,9 +1699,15 @@ $ curl -X POST http://localhost:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 
 Descriptor
 
-Inputs:
+Inputs: *None*.
 
 Outputs:
+
+  * *multisig* - bool;
+  * *ready* - bool;
+  * *threshold* - unsigned int;
+  * *total* - unsigned int;
+
 
 Example:
 ```
@@ -1602,9 +1718,12 @@ Example:
 
 Descriptor
 
-Inputs:
+Inputs: *None*.
 
 Outputs:
+
+  * *multisig_info* - string;
+
 
 Example:
 ```
@@ -1617,7 +1736,16 @@ Descriptor
 
 Inputs:
 
+  * *multisig_info* - array of strings;
+  * *threshold* - unsigned int;
+  * *password* - string;
+
+
 Outputs:
+
+  * *address* - string;
+  * *multisig_info* - string;
+
 
 Example:
 ```
@@ -1628,9 +1756,12 @@ Example:
 
 Descriptor
 
-Inputs:
+Inputs: *None*.
 
 Outputs:
+
+  * *info* - string;
+
 
 Example:
 ```
@@ -1643,7 +1774,13 @@ Descriptor
 
 Inputs:
 
+  * *info* - array of strings;
+
+
 Outputs:
+
+  * *n_outputs* - unsigned int;
+
 
 Example:
 ```
@@ -1656,7 +1793,14 @@ Descriptor
 
 Inputs:
 
+  * *password* - string;
+  * *multisig_info* - array of strings;
+
+
 Outputs:
+
+  * *address* - string;
+
 
 Example:
 ```
@@ -1669,7 +1813,14 @@ Descriptor
 
 Inputs:
 
+  * *tx_data_hex* - string;
+
+
 Outputs:
+
+  * *tx_data_hex* - string;
+  * *tx_hash_list* - array of strings;
+
 
 Example:
 ```
@@ -1682,7 +1833,13 @@ Descriptor
 
 Inputs:
 
+  * *tx_data_hex* - string;
+
+
 Outputs:
+
+  * *tx_hash_list* - array of strings;
+
 
 Example:
 ```

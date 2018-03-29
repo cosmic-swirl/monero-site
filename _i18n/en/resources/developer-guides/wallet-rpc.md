@@ -527,6 +527,19 @@ Example:
 ```
 
 
+### **relay_tx**
+
+Descriptor
+
+Inputs:
+
+Outputs
+
+Example:
+```
+```
+
+
 ### **store**
 
 Save the blockchain.
@@ -1083,6 +1096,136 @@ $ curl -X POST http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 ```
 
 
+### **set_attribute**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **get_attribute**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **get_tx_key**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **check_tx_key**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **get_tx_proof**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **check_tx_proof**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **get_spend_proof**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **check_spend_proof**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **get_reserve_proof**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **check_reserve_proof**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
 ### **sign**
 
 Sign a string.
@@ -1440,3 +1583,108 @@ $ curl -X POST http://localhost:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   }
 }
 ```
+
+
+### **is_multisig**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **prepare_multisig**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **make_multisig**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **export_multisig_info**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **import_multisig_info**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **finalize_multisig**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **sign_multisig**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+
+
+### **submit_multisig**
+
+Descriptor
+
+Inputs:
+
+Outputs:
+
+Example:
+```
+```
+

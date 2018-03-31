@@ -156,36 +156,45 @@ $ curl -X POST http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 
 ### **create_address**
 
-Descriptor
+Create and label a sub_address for the account at the specified index.
 
 Inputs:
 
-  * *account_index* - unsigned int;
-  * *label* - string;
+  * *account_index* - unsigned int; The index of the account that the sub_address will be created at.
+  * *label* - string; Label for the new sub_address.
 
 
 Outputs:
 
-  * *address* - string;
-  * *address_index* - unsigned int;
+  * *address* - string; - The newly created, 95-character, sub_address.
+  * *address_index* - unsigned int; The index, of the sub_address, for the account it was created at.
 
 
 Example:
 
 ```
+curl -X POST http://127.0.0.1:8082/json_rpc -d '{"method":"create_address","params":{"account_index":0,"label":"my monero subaddress"}}' -H 'Content-Type: application/json'
+{
+  "id": 0,
+  "jsonrpc": "2.0",
+  "result": {
+    "address": "85bpfagkgY9DPTu9nrt9Vg74s6cEVN9zd85ataoKuKzNW5KTwLp2Emdg66KCUMRFHhYYL7WFrgY7E3aUti1HWYkz6BZscDH",
+    "address_index": 1
+  }
+}
 ```
 
 
 ### **label_address**
 
-Descriptor
+Give the subaddress, at the specified location, a new label.
 
 Inputs:
 
-  * *index* - subaddress_index;:
-    * *major* - unsigned int;
-    * *minor* - unsigned int;
-  * *label* - string;
+  * *index* - subaddress_index; Location of the subaddress to relabel:
+    * *major* - unsigned int; Index of account containing subaddress to relabel.
+    * *minor* - unsigned int; Index of subaddress within account.
+  * *label* - string; New label for the subaddress.
 
 
 Outputs: *None*.
@@ -193,6 +202,13 @@ Outputs: *None*.
 Example:
 
 ```
+curl -X POST http://127.0.0.1:8082/json_rpc -d '{"method":"label_address","params":{"index":{"major":0,"minor":1},"label":"my monero subaddress label"}}' -H 'Content-Type: application/json'
+{
+  "id": 0,
+  "jsonrpc": "2.0",
+  "result": {
+  }
+}
 ```
 
 
@@ -202,7 +218,7 @@ Descriptor
 
 Inputs:
 
-  * *tag* - string;
+  * *tag* - string; Get all accounts with specified tag, leave blank to get all accounts.
 
 
 Outputs:

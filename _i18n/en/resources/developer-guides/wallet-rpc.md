@@ -214,7 +214,7 @@ curl -X POST http://127.0.0.1:8082/json_rpc -d '{"method":"label_address","param
 
 ### **get_accounts**
 
-Descriptor
+Get a list of all accounts
 
 Inputs:
 
@@ -223,15 +223,15 @@ Inputs:
 
 Outputs:
 
-  * *total_balance* - unsigned int;
-  * *total_unlocked_balance* - unsigned int;
+  * *total_balance* - unsigned int; Total balance of all returned accounts
+  * *total_unlocked_balance* - unsigned int; Total unlocked balance of all returned accounts
   * *subaddress_accounts* - array of type, subaddress_account_info:
-    * *account_index* - unsigned int;
-    * *base_address* - string;
-    * *balance* - unsigned int;
-    * *unlocked_balance* - unsigned int;
-    * *label* - string;
-    * *tag* - string;
+    * *account_index* - unsigned int; Index of account in wallet
+    * *base_address* - string; Base address of account
+    * *balance* - unsigned int; Balance of account
+    * *unlocked_balance* - unsigned int; Unlocked balance of account
+    * *label* - string; - Label for account
+    * *tag* - string; - Tag for account
 
 
 Example:
@@ -242,17 +242,17 @@ Example:
 
 ### **create_account**
 
-Descriptor
+Create a new account
 
 Inputs:
 
-  * *label* - string;
+  * *label* - string; Label to assign to new account
 
 
 Outputs:
 
-  * *account_index* - unsigned int;
-  * *address* - string;
+  * *account_index* - unsigned int; Index where account was created in wallet
+  * *address* - string; Base address for account
 
 
 Example:
@@ -263,12 +263,12 @@ Example:
 
 ### **label_account**
 
-Descriptor
+Relabel an account
 
 Inputs:
 
-  * *account_index* - unsigned int;
-  * *label* - string
+  * *account_index* - unsigned int; Index of the account to relabel
+  * *label* - string; The string to relabel the account with
 
 
 Outputs: *None*.
@@ -281,16 +281,16 @@ Example:
 
 ### **get_account_tags**
 
-Descriptor
+Get a list of all tags and the accounts they apply to
 
 Inputs: *None*.
 
 Outputs:
 
   * *account_tags* - array of, account_tag_info;:
-    * *tag* - string;
-    * *label* - string;
-    * *accounts* - array of, unsigned int;
+    * *tag* - string; Tag of the following group of accounts
+    * *label* - string; 
+    * *accounts* - array of, unsigned int; Indices of accounts with this tag
 
 
 Example:
@@ -301,12 +301,12 @@ Example:
 
 ### **tag_accounts**
 
-Descriptor
+Tag a set of accounts with the specified tag
 
 Inputs:
 
-  * *tag* - string;
-  * *accounts* - set of, unsigned int;
+  * *tag* - string; Tag to be applied
+  * *accounts* - array of, unsigned int; Indices of accounts to tag
 
 
 Outputs: *None*.
@@ -319,11 +319,11 @@ Example:
 
 ### **untag_accounts**
 
-Descriptor
+Remove any tag from the following account indices
 
 Inputs:
 
-  * *accounts* - set of unsigned int;
+  * *accounts* - array of unsigned int; A list of the indices, of the accounts, to remove the tags from
 
 
 Outputs: *None*.
@@ -336,12 +336,12 @@ Example:
 
 ### **set_account_tag_description**
 
-Descriptor
+Describe a tag
 
 Inputs:
 
-  * *tag* - string;
-  * *description* - string;
+  * *tag* - string; The tag to be described
+  * *description* - string; The description for the tag
 
 
 Outputs: *None*.

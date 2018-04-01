@@ -1143,12 +1143,12 @@ $ curl -X POST http://127.0.0.1:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 
 ### **set_attribute**
 
-Descriptor
+Set a monero wallet attribute
 
 Inputs:
 
-  * *key* - string;
-  * *value* - string;
+  * *key* - string; Attribute to set
+  * *value* - string; Setting of attribute
 
 
 Outputs: *None.*
@@ -1160,16 +1160,16 @@ Example:
 
 ### **get_attribute**
 
-Descriptor
+Get a monero wallet attribute
 
 Inputs:
 
-  * *key* - string;
+  * *key* - string; Attribute to get
 
 
 Outputs:
 
-  * *value* - string;
+  * *value* - string; Setting of attribute
 
 
 Example:
@@ -1179,16 +1179,16 @@ Example:
 
 ### **get_tx_key**
 
-Descriptor
+Get a transaction key
 
 Inputs:
 
-  * *txid* - string;
+  * *txid* - string; Transaction ID
 
 
 Outputs:
 
-  * *tx_key* - string;
+  * *tx_key* - string; Key of transaction
 
 
 Example:
@@ -1198,20 +1198,20 @@ Example:
 
 ### **check_tx_key**
 
-Descriptor
+Get a transaction's key from its ID
 
 Inputs:
 
-  * *txid* - string;
-  * *tx_key* - string;
-  * *address* - string;
+  * *txid* - string; Transaction ID
+  * *tx_key* - string; Transaction key
+  * *address* - string; Address that sent transfer
 
 
 Outputs:
 
-  * *received* - unsigned int;
-  * *in_pool* - bool;
-  * *confirmations* - unsigned int;
+  * *received* - unsigned int; Amount the receiving address received
+  * *in_pool* - bool; Transaction mempool status
+  * *confirmations* - unsigned int; Number of transaction confirmations
 
 
 Example:
@@ -1221,18 +1221,18 @@ Example:
 
 ### **get_tx_proof**
 
-Descriptor
+Get proof (signature) of transaction
 
 Inputs:
 
-  * *txid* - string;
-  * *address* - string;
-  * *message* - string;
+  * *txid* - string; Transaction ID
+  * *address* - string; Addresss that spent funds
+  * *message* - string; Message to attach to the signature
 
 
 Outputs:
 
-  * *signature* - string;
+  * *signature* - string; Transaction signature
 
 
 Example:
@@ -1242,22 +1242,22 @@ Example:
 
 ### **check_tx_proof**
 
-Descriptor
+Verify transaction proof
 
 Inputs:
 
-  * *txid* - string;
-  * *address* - string;
-  * *message* - string;
-  * *signature* - string;
+  * *txid* - string; Transaction ID
+  * *address* - string; Address that spent funds
+  * *message* - string; Message of the signature
+  * *signature* - string; Transaction signature
 
 
 Outputs:
 
-  * *good* - bool;
-  * *received* - unsigned int;
-  * *in_pool* - bool;
-  * *confirmations* - unsigned int;
+  * *good* - bool; Transaction valid status
+  * *received* - unsigned int; Amount received
+  * *in_pool* - bool; Mempool status
+  * *confirmations* - unsigned int; Number of confirmations
 
 
 Example:
@@ -1267,17 +1267,17 @@ Example:
 
 ### **get_spend_proof**
 
-Descriptor
+Get proof of a spend
 
 Inputs:
 
-  * *txid* - string;
-  * *message* - string;
+  * *txid* - string; Transaction ID
+  * *message* - string; Message to attach to signature
 
 
 Outputs:
 
-  * *signature* - string;
+  * *signature* - string; Spend signature
 
 
 Example:
@@ -1287,18 +1287,18 @@ Example:
 
 ### **check_spend_proof**
 
-Descriptor
+Verify spend proof (signature)
 
 Inputs:
 
-  * *txid* - string;
-  * *message* - string;
-  * *signature* - string;
+  * *txid* - string; Transaction ID
+  * *message* - string; Message of the signature
+  * *signature* - string; Spend signature
 
 
 Outputs:
 
-  * *good* - bool;
+  * *good* - bool; Validity of signature
 
 
 Example:
@@ -1308,19 +1308,19 @@ Example:
 
 ### **get_reserve_proof**
 
-Descriptor
+Get proof of reserves i.e. `does an account/wallet contain at least X amount?`
 
 Inputs:
 
-  * *all* - bool;
-  * *account_index* - unsigned int;
-  * *amount* - unsigned int;
-  * *message* - string;
+  * *all* - bool; Whether or not to get reserves of all accounts
+  * *account_index* - unsigned int; If not, index of account to get reserves amount from, ignored when all is true
+  * *amount* - unsigned int; Amount to confirm, ignored when all is true
+  * *message* - string; Message to attach to signature
 
 
 Outputs:
 
-  * *signature* - string;
+  * *signature* - string; Signature of reserves
 
 
 Example:
@@ -1330,21 +1330,21 @@ Example:
 
 ### **check_reserve_proof**
 
-Descriptor
+Verify reserves proof (signature)
 
 Inputs:
 
-  * *address* - string;
-  * *message* - string;
-  * *signature* - string;
+  * *address* - string; Address to get info of
+  * *message* - string; Message of signature
+  * *signature* - string; Reserves signature
 
 
 Outputs:
 
-  * *good* - bool;
-  * *total* - unsigned int;
-  * *spend* - unsigned int;
-
+  * *good* - bool; Validity of signature
+  * *total* - unsigned int; Address total balance
+  * *spent* - unsigned int; Address spent balance
+;
 
 Example:
 ```

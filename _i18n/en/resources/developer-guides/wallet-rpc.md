@@ -531,21 +531,21 @@ $ curl -X POST http://localhost:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 
 ### **sweep_single**
 
-Descriptor: TODO
+Sweep a single key image to an address
 
 Inputs:
   
-  * *address* - string;
-  * *priority* - unsigned int;
-  * *mixin* - unsigned int;
-  * *ring_size* - unsigned int;
-  * *unlock_time* - unsigned int;
-  * *payment_id* - string;
-  * *get_tx_key* - bool;
-  * *key_image* - string;
-  * *do_not_relay* - bool;
-  * *get_tx_hex* - bool;
-  * *get_tx_metadata* - bool;
+  * *address* - string; Address to receive funds
+  * *priority* - unsigned int; Payment ID (optional)
+  * *mixin* - unsigned int; Mixin number (ringsize - 1) (optional)
+  * *ring_size* - unsigned int; Ring size to use (optional)
+  * *unlock_time* - unsigned int; UNIX time or block height to unlock output (optional)
+  * *payment_id* - string; Payment ID (optional)
+  * *get_tx_key* - bool; Display transaction key
+  * *key_image* - string; Key image to sweep
+  * *do_not_relay* - bool; Do not relay transaction (optional)
+  * *get_tx_hex* - bool; Display transaction hex
+  * *get_tx_metadata* - bool; Display transaction metadata
 
 
 Outputs:
@@ -565,11 +565,11 @@ Example:
 
 ### **relay_tx**
 
-Descriptor: TODO
+Relay a transaction
 
 Inputs:
 
-  * *hex* - string;
+  * *hex* - string; Blob of transaction to relay
 
 
 Outputs:
@@ -1731,7 +1731,7 @@ Example:
 
 ### **prepare_multisig**
 
-Descriptor: TODO
+Create information needed to create a multisignature wallet
 
 Inputs: *None*.
 
@@ -1747,13 +1747,13 @@ Example:
 
 ### **make_multisig**
 
-Descriptor: TODO
+Create a multisignature wallet
 
 Inputs:
 
-  * *multisig_info* - array of strings;
-  * *threshold* - unsigned int;
-  * *password* - string;
+  * *multisig_info* - array of strings; Multisignature information (from eg. prepare_multisig)
+  * *threshold* - unsigned int; Threshold required to spend from multisignature wallet
+  * *password* - string; Passphrase to apply to multisignature wallet
 
 
 Outputs:
@@ -1769,7 +1769,7 @@ Example:
 
 ### **export_multisig_info**
 
-Descriptor: TODO
+Export multisignature information
 
 Inputs: *None*.
 
@@ -1785,11 +1785,11 @@ Example:
 
 ### **import_multisig_info**
 
-Descriptor: TODO
+Import mutlisignature information
 
 Inputs:
 
-  * *info* - array of strings;
+  * *info* - array of strings; Multisignature info (from eg. prepare_multisig)
 
 
 Outputs:
@@ -1804,12 +1804,12 @@ Example:
 
 ### **finalize_multisig**
 
-Descriptor: TODO
+Finalize a multisignature wallet
 
 Inputs:
 
-  * *password* - string;
-  * *multisig_info* - array of strings;
+  * *password* - string; Multisignature password
+  * *multisig_info* - array of strings; Multisignature info (from eg. prepare_multisig)
 
 
 Outputs:
@@ -1824,11 +1824,11 @@ Example:
 
 ### **sign_multisig**
 
-Descriptor: TODO
+Sign a multisignature transaction
 
 Inputs:
 
-  * *tx_data_hex* - string;
+  * *tx_data_hex* - string; Blob of transaction to sign
 
 
 Outputs:
@@ -1844,11 +1844,11 @@ Example:
 
 ### **submit_multisig**
 
-Descriptor: TODO
+Submit (relay) a multisignature transaction
 
 Inputs:
 
-  * *tx_data_hex* - string;
+  * *tx_data_hex* - string; Blob of transaction to submit
 
 
 Outputs:
@@ -1859,4 +1859,3 @@ Outputs:
 Example:
 ```
 ```
-

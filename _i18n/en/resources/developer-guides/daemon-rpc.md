@@ -15,6 +15,15 @@ Note: "atomic units" refer to the smallest fraction of 1 XMR according to the mo
 * [getlastblockheader](#getlastblockheader)
 * [getblockheaderbyhash](#getblockheaderbyhash)
 * [getblockheaderbyheight](#getblockheaderbyheight)
+* [getblock_by_hash](#getblock_by_hash)
+* [getblock_by_height](#getblock_by_height)
+* [get_connections](#get_connections)
+* [get_info](#get_info)
+* [hardfork_info](#hardfork_info)
+* [set_bans](#set_bans)
+* [setbans](#setbans)
+* [get_bans](#get_bans)
+* [getbans](#getbans)
 * [getblock](#getblock)
 * [get_connections](#get_connections)
 * [get_info](#get_info)
@@ -281,6 +290,223 @@ $ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 }
 ```
 
+
+### **getblock_by_hash**
+
+Look up block information by SHA256 hashes
+
+Inputs: 
+
+  * *hash* - string; SHA256 hash of block 
+
+Outputs:
+
+  * *blob*
+  * *block_header*:
+    * *depth* - unsigned int;
+    * *difficulty* - unsigned int;
+    * *hash* - string;
+    * *height* - unsigned int;
+    * *major_version* - unsigned int;
+    * *minor_version* - unsigned int;
+    * *nonce* - unsigned int;
+    * *orphan_status* - bool;
+    * *prev_hash* - string;
+    * *reward* - unsigned int;
+    * *timestamp* - unsigned int;
+  * *json*
+  * *status* - string;
+
+
+Example:
+```
+TODO
+```
+
+
+### **getblock_by_height**
+
+Look up block information by height
+
+Inputs: 
+
+  * *height* - unsigned int; Height of block
+
+Outputs:
+
+  * *blob*
+  * *block_header*:
+    * *depth* - unsigned int;
+    * *difficulty* - unsigned int;
+    * *hash* - string;
+    * *height* - unsigned int;
+    * *major_version* - unsigned int;
+    * *minor_version* - unsigned int;
+    * *nonce* - unsigned int;
+    * *orphan_status* - bool;
+    * *prev_hash* - string;
+    * *reward* - unsigned int;
+    * *timestamp* - unsigned int;
+  * *json*
+  * *status* - string;
+
+
+Example:
+```
+TODO
+```
+
+
+### **get_connections**
+
+Look up incoming and outgoing connections to your node
+
+Inputs: *None*
+
+Outputs:
+  
+  * *connections* array of:
+    * *avg_download* - unsigned int;
+    * *avg_upload* - unsigned int;
+    * *current_download* - unsigned int;
+    * *current_upload* - unsigned int;
+    * *incoming* - bool;
+    * *ip* - string;
+    * *live_time* - unsigned int;
+    * *local_ip* - bool;
+    * *localhost* - false;
+    * *peer_id* - string;
+    * *port* - string;
+    * *recv_count* - unsigned int;
+    * *recv_idle_time* - unsigned int;
+    * *send_count* - unsigned int;
+    * *send_idle_time* - unsigned int;
+    * *state* - string;
+  * *status* - string;
+
+Example:
+```
+TODO
+```
+
+
+### **get_info**
+
+Look up general information about the state of your node and the network
+
+Inputs: *None*
+
+Outputs:
+
+  *   *alt_blocks_count* - unsigned int;
+  *   *difficulty* - unsigned int;
+  *   *grey_peerlist_size* - unsigned int;
+  *   *height* - unsigned int;
+  *   *incoming_connections_count* - unsigned int;
+  *   *outgoing_connections_count* - unsigned int;
+  *   *status* - string;
+  *   *target* - unsigned int;
+  *   *target_height* - unsigned int;
+  *   *testnet* - bool;
+  *   *top_block_hash* - string;
+  *   *tx_count* - unsigned int;
+  *   *tx_pool_size* - unsigned int;
+  *   *white_peerlist_size* - unsigned int;
+
+
+Example:
+```
+TODO
+```
+
+
+### **hardfork_info**
+
+Look up information regarding hard fork voting and readiness
+
+Inputs: *None*
+
+Outputs:
+
+* *alt_blocks_count* - unsigned int;
+* *block_size_limit* - unsigned int;
+* *block_size_median* - unsigned int;
+* *bootstrap_daemon_address*
+* *cumulative_difficulty* - unsigned int;
+* *difficutlty* - unsigned int;
+* *free_space* - unsigned int;
+*  *grey_peerlist_size* - unsigned int;
+*  *height* - unsigned int;
+*  *height_without_bootstrap* - unsigned int;
+*  *incoming_connections_count* - unsigned int;
+*  *offline* -  ?
+*  *outgoing_connections_count* - unsigned int;
+*  *rpc_connections_count* - unsigned int;
+*  *start_time* - unsigned int;
+*  *status* - string;
+*  *target* - unsigned int;
+*  *target_height* - unsigned int;
+*  *testnet* - unsigned int;
+*  *top_block_hash* - string;
+*  *tx_count* - unsigned int;
+*  *tx_pool_size* - unsigned int;
+*  *untrusted* - ?
+*  *was_bootstrap_ever_used - ?
+*  *white_peerlist_size* - unsigned int;
+
+
+Example:
+```
+TODO
+```
+
+
+### **set_bans**
+
+Ban another node by IP
+
+Inputs:
+
+  * *bans* - array of string; Array of IP addresses to ban
+
+Outputs:
+
+  * *status* - string;
+
+
+Example:
+```
+TODO
+```
+
+
+### **setbans**
+
+Alias for *set_bans*
+
+### **get_bans**
+
+Get list of banned IPs
+
+Inputs: *None*
+
+Outputs:
+
+  * *bans* - array of:
+    * *ip* -  string;
+    * *seconds* - unsigned int;
+  * *status* - string;
+
+
+Example:
+```
+TODO
+```
+
+
+### **get_bans**
+
+Alias for *get_bans*
 
 ### **getblock**
 

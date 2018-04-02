@@ -531,7 +531,7 @@ $ curl -X POST http://localhost:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 
 ### **sweep_single**
 
-Descriptor
+Descriptor: TODO
 
 Inputs:
   
@@ -565,7 +565,7 @@ Example:
 
 ### **relay_tx**
 
-Descriptor
+Descriptor: TODO
 
 Inputs:
 
@@ -1308,7 +1308,7 @@ Example:
 
 ### **get_reserve_proof**
 
-Get proof of reserves i.e. `does an account/wallet contain at least X amount?`
+Get proof of reserves
 
 Inputs:
 
@@ -1712,14 +1712,14 @@ $ curl -X POST http://localhost:18082/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
 
 ### **is_multisig**
 
-Descriptor
+Check if wallet is multisig
 
 Inputs: *None*.
 
 Outputs:
 
-  * *multisig* - bool;
-  * *ready* - bool;
+  * *multisig* - bool; 
+  * *ready* - bool; 
   * *threshold* - unsigned int;
   * *total* - unsigned int;
 
@@ -1731,7 +1731,7 @@ Example:
 
 ### **prepare_multisig**
 
-Descriptor
+Descriptor: TODO
 
 Inputs: *None*.
 
@@ -1747,7 +1747,7 @@ Example:
 
 ### **make_multisig**
 
-Descriptor
+Descriptor: TODO
 
 Inputs:
 
@@ -1769,7 +1769,7 @@ Example:
 
 ### **export_multisig_info**
 
-Descriptor
+Descriptor: TODO
 
 Inputs: *None*.
 
@@ -1785,7 +1785,7 @@ Example:
 
 ### **import_multisig_info**
 
-Descriptor
+Descriptor: TODO
 
 Inputs:
 
@@ -1804,7 +1804,7 @@ Example:
 
 ### **finalize_multisig**
 
-Descriptor
+Descriptor: TODO
 
 Inputs:
 
@@ -1824,7 +1824,7 @@ Example:
 
 ### **sign_multisig**
 
-Descriptor
+Descriptor: TODO
 
 Inputs:
 
@@ -1844,7 +1844,7 @@ Example:
 
 ### **submit_multisig**
 
-Descriptor
+Descriptor: TODO
 
 Inputs:
 

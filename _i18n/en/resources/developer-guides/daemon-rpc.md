@@ -22,16 +22,16 @@ Note: "atomic units" refer to the smallest fraction of 1 XMR according to the mo
 * [hard_fork_info](#hard_fork_info)
 * [setbans](#setbans)
 * [getbans](#getbans)
-* [flush_txpool]()
-* [get_output_histogram]
-* [get_version]
-* [get_coinbase_tx_sum]
-* [get_per_kb_fee_estimate]
-* [get_alternate_chains]
-* [relay_tx]
-* [sync_info]
-* [get_txpool_backlog]
-* [get_output_distribution]
+* [flush_txpool](#flush_txpool)
+* [get_output_histogram](#get_output_histogram)
+* [get_version](#get_version)
+* [get_coinbase_tx_sum](#get_coinbase_tx_sum)
+* [get_per_kb_fee_estimate](#get_per_kb_fee_estimate)
+* [get_alternate_chains](#get_alternate_chains)
+* [relay_tx](#relay_tx)
+* [sync_info](#sync_info)
+* [get_txpool_backlog](#get_txpool_backlog)
+* [get_output_distribution](#get_output_distribution)
 
 ### [Other RPC Methods](#other-daemon-rpc-calls):
 
